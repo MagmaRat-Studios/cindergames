@@ -1,0 +1,47 @@
+@require '~styles/variables'
+@require '~styles-lib/mixins'
+
+.forum-topic-list-item
+	clearfix()
+	margin-bottom: $line-height-computed
+
+	h5
+		font-weight: bold
+		margin: 0
+
+		@media $media-xs
+			font-size: $font-size-base
+
+	&-author
+		theme-prop('color', 'fg-muted')
+		font-size: $font-size-small
+
+		a
+			font-weight: bold
+
+			&:hover
+				text-decoration: underline
+
+	&-latest-post
+		&-avatar
+			float: right
+			margin-left: 10px
+			width: 40px
+
+		&-info
+			> div
+				text-overflow()
+
+			&-username
+				font-weight: bold
+
+.-vote
+	float: left
+	width: 90px
+
+.-main
+	.-has-voting &
+		margin-left: 90px
+
+		@media $media-sm-up
+			margin-left: 90px + $grid-gutter-width

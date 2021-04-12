@@ -1,0 +1,19 @@
+@require '../../../../_styles/mixins/compiled-content'
+
+.forum-post-content
+	compiled-content($font-size-base)
+
+	pre
+		padding-left: ($forum-post-list-icon-size / 2) + $forum-post-list-avatar-margin
+		margin-left: - @padding-left
+
+		.form-markdown-editor-preview&
+			// Reset the padding to what it is in scaffolding.styl
+			padding-left: (($line-height-computed - 1) / 2)
+			margin-left: 0
+
+	&-quoted
+		theme-prop('border-left-color', 'bg-offset')
+		border-left-width: 3px
+		border-left-style: solid
+		padding-left: ($grid-gutter-width / 2)
