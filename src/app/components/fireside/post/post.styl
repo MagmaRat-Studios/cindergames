@@ -1,0 +1,33 @@
+@require '../../../../_styles/mixins/compiled-content'
+
+$-font-size-xs = 16px
+$-font-size = 17px
+$-lead-font-size-xs = 16px
+$-lead-font-size = 19px
+
+.fireside-post-article-content
+	compiled-content($-font-size-xs)
+
+	@media $media-sm-up
+		compiled-content($-font-size)
+
+	.spoiler
+		font-style: normal
+
+	img, iframe
+		rounded-corners-lg()
+
+.fireside-post-lead-content
+	font-size: $-lead-font-size-xs
+	line-height: $line-height-base
+	font-weight: 600 // Semibold
+
+	@media $media-sm-up
+		font-size: $-lead-font-size
+
+	>>> a
+		theme-prop('color', 'link')
+
+		&:hover, &:focus
+			theme-prop('color', 'link')
+			text-decoration: underline
