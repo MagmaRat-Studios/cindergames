@@ -1,0 +1,165 @@
+/**
+ * Nav menu items.
+ */
+$shell-nav-item-spacing = 12px
+$shell-nav-item-height = 50px
+$shell-nav-item-color = var(--theme-fg)
+
+ul.shell-nav
+	@extend .list-unstyled
+	font-size: 15px // Stupid custom size!
+	margin-bottom: 0
+
+	.tag
+	.badge
+		float: right
+		margin-left: 5px
+		margin-top: 15px
+
+	.shell-nav-icon
+		display: block
+		float: left
+		width: $shell-nav-item-height
+		line-height: $shell-nav-item-height
+		color: $shell-nav-item-color
+		text-align: center
+
+		.jolticon
+			vertical-align: text-bottom
+
+	.shell-nav-label
+		text-overflow()
+		display: block
+
+	.user-avatar-img
+		display: inline-block
+		width: 25px
+		vertical-align: middle
+
+	.shell-nav-chevron
+		float: right
+		line-height: $shell-nav-item-height
+
+		.jolticon
+			vertical-align: text-bottom
+
+	.tag
+	.badge
+	.jolticon
+		position: relative
+		z-index: 1
+
+	small
+		color: var(--theme-fg-muted)
+
+	& > li
+		margin-bottom: 0
+
+		a
+			@extend .clearfix
+			position: relative
+			display: block
+			color: $shell-nav-item-color
+			user-select: none
+			padding: 0 15px
+			padding-left: 0
+			line-height: $shell-nav-item-height
+
+			&:hover
+				change-bg('bg-subtle')
+				color: var(--theme-link-hover)
+
+			&.no-icon
+				padding-left: 15px
+
+			&.active
+				change-bg('bg-subtle')
+
+				&
+				&:hover
+					theme-prop('color', 'bi-bg')
+
+					.jolticon
+						theme-prop('color', 'bi-bg')
+
+					.tag
+						@extend .tag-highlight
+
+					.badge
+						@extend .badge-highlight
+
+// Nested ULs
+ul.shell-nav ul
+	& > li a
+		position: relative
+		padding-left: 15px
+
+		&::after
+			change-bg('darker')
+			content: ''
+			display: block
+			position: absolute
+			left: 21px
+			top: 0
+			bottom: 0
+			width: 3px
+
+			&:hover
+				display: none
+
+/**
+ * Nav Inline
+ */
+.shell-nav-inline
+	padding-left: 15px
+	padding-right: 15px
+
+/**
+ * Nav headings
+ */
+.nav-heading
+	display: block
+	font-family: $font-family-heading
+	font-size: $font-size-tiny
+	letter-spacing: 0.1em
+	line-height: 1
+	text-transform: uppercase
+	color: var(--theme-fg)
+	margin-top: $font-size-base * 2
+	margin-bottom: ($font-size-base / 2)
+	margin-left: 15px
+	margin-right: 15px
+
+	&.first
+		margin-top: $font-size-base
+
+	& > small
+		float: right
+		color: var(--theme-fg-muted)
+		font-weight: normal
+
+	& > .badge
+		float: right
+		margin-top: -3px
+		margin-left: 5px
+
+	a&:hover
+		color: var(--theme-link-hover)
+		text-decoration: underline
+
+/**
+ * Nav Wells
+ */
+.nav-well
+	padding: 15px
+	font-size: $font-size-small
+
+/**
+ * Nav controls
+ */
+.nav-controls
+	padding: 0 15px 0 15px
+
+	& > .form-control
+	& > .button
+		margin-bottom: $font-size-base
