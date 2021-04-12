@@ -1,0 +1,35 @@
+@require '~styles/variables'
+@require '../../../_styles/animation/fade/fade-in'
+@require '../../../_common/auth/auth-form'
+
+#auth-container
+	&.has-cover-img
+		.error, .alert
+			text-shadow: none
+
+	// We want all the forms in the auth section to match the auth-form styling.
+	form
+		@extend .auth-form
+
+		.form-group
+			@extend .anim-fade-in
+
+	.loading
+		color: $white
+
+	.auth-lead-text
+		text-align: center
+		margin-top: -20px
+
+	.auth-social-buttons button
+		margin-bottom: 10px
+
+	.auth-line-thru
+		&::before, &::after
+			border-color: rgba($white, 0.5)
+
+	.auth-page-links
+		margin-top: $line-height-computed
+
+		.auth-page-link
+			margin-bottom: ($line-height-computed / 2)
